@@ -358,7 +358,7 @@ def prime_palindrome(request_id, n):
 # Result Service
 
 ## Request: Result
-![GET](https://badgen.net/badge/Method/GET/green)<span style="padding:10px">**/result/`<int:result_id>`**</span>
+![GET](https://badgen.net/badge/Method/GET/green)<span style="padding:10px">**/result/`<int:request_id>`**</span>
 
 
 ### Responses:
@@ -413,12 +413,12 @@ def prime_palindrome(request_id, n):
 }
 ```
 #### Result - Request ID Not Exist
-![BAD%20REQUEST](https://badgen.net/badge/BAD%20REQUEST/400/red)
+![NOT%20FOUND](https://badgen.net/badge/NOT%20FOUND/404/red)
 ```json
 {
     "action": "get_result",
     "action_status": "error",
-    "message": "Bad request: request with id 1 does not exist"
+    "message": "Request with id 2 does not exist"
 }
 ```
 

@@ -1138,17 +1138,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost/result/:result_id",
+							"raw": "localhost/result/:request_id",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"result",
-								":result_id"
+								":request_id"
 							],
 							"variable": [
 								{
-									"key": "result_id",
+									"key": "request_id",
 									"value": null
 								}
 							]
@@ -1337,18 +1337,18 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost/result/1",
+									"raw": "localhost/result/2",
 									"host": [
 										"localhost"
 									],
 									"path": [
 										"result",
-										"1"
+										"2"
 									]
 								}
 							},
-							"status": "BAD REQUEST",
-							"code": 400,
+							"status": "NOT FOUND",
+							"code": 404,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1357,15 +1357,15 @@
 								},
 								{
 									"key": "Set-Cookie",
-									"value": "SESS_ID=ae408e7a-20ff-4d8e-9e53-4902101199db; Expires=Thu, 23 Jun 2022 21:17:34 GMT; Max-Age=3600; Path=/"
+									"value": "SESS_ID=aebe31e8-1e1f-40b0-8f00-8d0f75f23cbd; Expires=Thu, 23 Jun 2022 21:40:30 GMT; Max-Age=3600; Path=/"
 								},
 								{
 									"key": "Content-Length",
-									"value": "110"
+									"value": "97"
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 23 Jun 2022 20:17:38 GMT"
+									"value": "Thu, 23 Jun 2022 20:40:30 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1373,7 +1373,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: request with id 1 does not exist\"\n}"
+							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"error\",\n    \"message\": \"Request with id 2 does not exist\"\n}"
 						}
 					]
 				}
