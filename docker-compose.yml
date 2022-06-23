@@ -1,0 +1,96 @@
+version: '3'
+services:
+  rabbitmq:
+    container_name: simple-calculator-rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+    restart: always
+
+  mysql:
+    container_name: simple-calculator-mysql
+    image: mysql:5.7
+    volumes:
+      - ./sql/init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+  redis:
+    container_name: simple-calculator-redis
+    image: redis:5
+    restart: always
+    ports:
+      - "6379:6379"
+
+  gateway:
+    container_name: simple-calculator-service-gateway
+    image: simple-calculator-gateway
+    depends_on:
+      - rabbitmq
+      - redis
+      - user
+      - result
+      - spawner
+    ports:
+      - "80:8000"
+    restart: always
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - REDIS_HOST=redis
+
+  user:
+    container_name: simple-calculator-service-user
+    image: simple-calculator-user
+    depends_on:
+      - rabbitmq
+      - mysql
+    restart: always
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - DB_HOST=mysql
+      - DB_PASS=root
+      - DB_NAME=srv_calc
+
+  spawner:
+    container_name: simple-calculator-service-spawner
+    image: simple-calculator-spawner
+    depends_on:
+      - rabbitmq
+      - mysql
+      - celery
+    restart: always
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - DB_HOST=mysql
+      - DB_PASS=root
+      - DB_NAME=srv_calc
+
+  result:
+    container_name: simple-calculator-service-result
+    image: simple-calculator-result
+    depends_on:
+      - rabbitmq
+      - mysql
+    restart: always
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - DB_HOST=mysql
+      - DB_PASS=root
+      - DB_NAME=srv_calc
+
+  celery:
+    container_name: simple-calculator-service-celery
+    image: simple-calculator-celery
+    depends_on:
+      - rabbitmq
+      - mysql
+    restart: always
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - DB_HOST=mysql
+      - DB_PASS=root
+      - DB_NAME=srv_calc

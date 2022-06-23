@@ -1,0 +1,1383 @@
+{
+	"info": {
+		"_postman_id": "08130b97-71de-46e4-8039-69737caf5f0e",
+		"name": "Simple Calculator Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21252350"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/register",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register - Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/register",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:32:16 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:32:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"register\",\n    \"action_status\": \"success\",\n    \"register_status\": \"success\",\n    \"username\": \"username\",\n    \"message\": \"Registration successful\"\n}"
+						},
+						{
+							"name": "Register - Already Registered",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/register",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:32:41 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:32:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"register\",\n    \"action_status\": \"success\",\n    \"register_status\": \"username_registered\",\n    \"message\": \"Username already registered\"\n}"
+						},
+						{
+							"name": "Register - Already Logged In",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/register",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:40:33 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:40:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"register\",\n    \"action_status\": \"success\",\n    \"register_status\": \"already_logged_in\",\n    \"message\": \"Already logged in, please logout first before registering\"\n}"
+						},
+						{
+							"name": "Register - Bad Request (Incomplete)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/register",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:33:12 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "123"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:33:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"register\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: missing '('username', <class 'str'>)' parameter\"\n}"
+						},
+						{
+							"name": "Register - Bad Request (Wrong Type)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 122,\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/register",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:33:51 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:33:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"register\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: 'username' parameter is not of type '<class 'str'>'\"\n}"
+						},
+						{
+							"name": "Register - Bad Request (Non JSON)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Any non-JSON data",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/register",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:42:33 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:42:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"register\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: invalid data\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/login",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login - Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:40:25 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:40:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"success\",\n    \"login_status\": \"success\",\n    \"username\": \"username\",\n    \"message\": \"Login successful\"\n}"
+						},
+						{
+							"name": "Login - Already Logged In",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=9b01b9a9-b400-42ec-bc2f-949edd6d77a1; Expires=Wed, 22 Jun 2022 16:48:57 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "160"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:48:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"success\",\n    \"login_status\": \"already_logged_in\",\n    \"message\": \"Already logged in, please logout first before logging back in\"\n}"
+						},
+						{
+							"name": "Login - Username Not Exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username1\",\r\n    \"password\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=d8b90935-f6eb-45a6-b7a6-9d0bbe9af5b6; Expires=Wed, 22 Jun 2022 16:49:34 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "123"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:49:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"success\",\n    \"login_status\": \"username_not_exist\",\n    \"message\": \"Username does not exist\"\n}"
+						},
+						{
+							"name": "Login - Wrong Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\",\r\n    \"password\" : \"password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=d8b90935-f6eb-45a6-b7a6-9d0bbe9af5b6; Expires=Wed, 22 Jun 2022 16:49:59 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "123"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:49:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"success\",\n    \"login_status\": \"password_not_match\",\n    \"message\": \"Password does not match\"\n}"
+						},
+						{
+							"name": "Login - Bad Request (Incomplete)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"username\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=d8b90935-f6eb-45a6-b7a6-9d0bbe9af5b6; Expires=Wed, 22 Jun 2022 16:51:59 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "120"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:51:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: missing '('password', <class 'str'>)' parameter\"\n}"
+						},
+						{
+							"name": "Login - Bad Request (Wrong Type)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 111,\r\n    \"password\" : \"password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=d8b90935-f6eb-45a6-b7a6-9d0bbe9af5b6; Expires=Wed, 22 Jun 2022 16:52:58 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:52:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: 'username' parameter is not of type '<class 'str'>'\"\n}"
+						},
+						{
+							"name": "Login - Bad Request (Non JSON)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Any non-JSON data",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost/login",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=d8b90935-f6eb-45a6-b7a6-9d0bbe9af5b6; Expires=Wed, 22 Jun 2022 16:53:37 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:53:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"login\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: invalid data\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/logout",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout - Successful",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost/logout",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=40835ef5-fa92-47c4-b3e2-71671a4fb55e; Expires=Wed, 22 Jun 2022 16:46:18 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jun 2022 15:46:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"logout\",\n    \"action_status\": \"success\",\n    \"message\": \"Logged out successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Calculation",
+			"item": [
+				{
+					"name": "Prime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/prime/:index",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prime",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Prime - Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/prime/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"prime",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=f59bd8e2-a8c6-4bb5-bf03-fca688ad4b0f; Expires=Thu, 23 Jun 2022 19:43:29 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "145"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 18:43:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_prime\",\n    \"action_status\": \"success\",\n    \"request_id\": 1,\n    \"message\": \"Prime calculation request created, fetch result from /result/1\"\n}"
+						},
+						{
+							"name": "Prime - Bad Request (Index Out of Range)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/prime/0",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"prime",
+										"0"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=f59bd8e2-a8c6-4bb5-bf03-fca688ad4b0f; Expires=Thu, 23 Jun 2022 19:42:31 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 18:42:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_prime\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: index must be greater than 0\"\n}"
+						},
+						{
+							"name": "Prime - Not Logged In",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/prime/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"prime",
+										"1"
+									]
+								}
+							},
+							"status": "UNAUTHORIZED",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=ea530055-e301-4dea-b062-a8259b8661be; Expires=Thu, 23 Jun 2022 19:35:21 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 18:35:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_prime\",\n    \"action_status\": \"error\",\n    \"message\": \"Unauthorized: please login first\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Prime Palindrome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/prime/palindrome/:index",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prime",
+								"palindrome",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Prime Palindrome - Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/prime/palindrome/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"prime",
+										"palindrome",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=f59bd8e2-a8c6-4bb5-bf03-fca688ad4b0f; Expires=Thu, 23 Jun 2022 19:44:29 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "167"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 18:44:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_prime_palindrome\",\n    \"action_status\": \"success\",\n    \"request_id\": 2,\n    \"message\": \"Prime palindrome calculation request created, fetch result from /result/2\"\n}"
+						},
+						{
+							"name": "Prime Palindrome - Bad Request (Index Out of Range)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/prime/palindrome/0",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"prime",
+										"palindrome",
+										"0"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=f59bd8e2-a8c6-4bb5-bf03-fca688ad4b0f; Expires=Thu, 23 Jun 2022 19:44:58 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "116"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 18:44:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_prime_palindrome\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: index must be greater than 0\"\n}"
+						},
+						{
+							"name": "Prime Palindrome - Not Logged In",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/prime/palindrome/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"prime",
+										"palindrome",
+										"1"
+									]
+								}
+							},
+							"status": "UNAUTHORIZED",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=37f3975b-d7ac-4a87-ad9a-59ae74b8379f; Expires=Thu, 23 Jun 2022 19:45:38 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 18:45:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_prime_palindrome\",\n    \"action_status\": \"error\",\n    \"message\": \"Unauthorized: please login first\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Result",
+			"item": [
+				{
+					"name": "Result",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/result/:result_id",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"result",
+								":result_id"
+							],
+							"variable": [
+								{
+									"key": "result_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Result - Successful (Request Finished)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/result/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"result",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=c89936bf-9664-48f9-ac3f-bcf5e1346eea; Expires=Thu, 23 Jun 2022 21:25:51 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "345"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 20:25:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"success\",\n    \"request_status\": \"finished\",\n    \"message\": \"Result for request with id 1 is finished\",\n    \"request_id\": 1,\n    \"request_username\": \"username\",\n    \"request_type\": \"prime\",\n    \"request_input\": 10,\n    \"request_start_time\": \"2022-06-23T20:25:44\",\n    \"request_finish_time\": \"2022-06-23T20:25:44\",\n    \"request_result\": 29\n}"
+						},
+						{
+							"name": "Result - Successful (Request In Progress)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/result/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"result",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=ae408e7a-20ff-4d8e-9e53-4902101199db; Expires=Thu, 23 Jun 2022 21:18:36 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "287"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 20:18:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"success\",\n    \"request_status\": \"pending\",\n    \"message\": \"Result for request with id 1 is not finished yet\",\n    \"request_id\": 1,\n    \"request_username\": \"username\",\n    \"request_type\": \"prime\",\n    \"request_input\": 69420,\n    \"request_start_time\": \"2022-06-23T20:18:30\"\n}"
+						},
+						{
+							"name": "Result - Not Logged In",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/result/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"result",
+										"1"
+									]
+								}
+							},
+							"status": "UNAUTHORIZED",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=ae408e7a-20ff-4d8e-9e53-4902101199db; Expires=Thu, 23 Jun 2022 21:16:55 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 20:16:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"error\",\n    \"message\": \"Unauthorized: please login first\"\n}"
+						},
+						{
+							"name": "Result - Not the Requester",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/result/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"result",
+										"1"
+									]
+								}
+							},
+							"status": "FORBIDDEN",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=46ed5dab-343f-4168-9cd6-2f9f86bb7ea7; Expires=Thu, 23 Jun 2022 21:26:32 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "116"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 20:26:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"error\",\n    \"message\": \"Forbidden: request with id 1 does not belong to you\"\n}"
+						},
+						{
+							"name": "Result - Request ID Not Exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost/result/1",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"result",
+										"1"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SESS_ID=ae408e7a-20ff-4d8e-9e53-4902101199db; Expires=Thu, 23 Jun 2022 21:17:34 GMT; Max-Age=3600; Path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jun 2022 20:17:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"action\": \"get_result\",\n    \"action_status\": \"error\",\n    \"message\": \"Bad request: request with id 1 does not exist\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

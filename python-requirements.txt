@@ -1,0 +1,6 @@
+nameko
+redis
+mysql-connector-python
+pyjwt
+bcrypt
+celery==4.4.6
