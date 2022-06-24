@@ -18,7 +18,7 @@ class DatabaseWrapper:
         sql = f"""INSERT INTO requests (type, username, input) VALUES ("{request_type}", "{request_username}", "{request_input}") """
         cursor.execute(sql)
         last_id = cursor.lastrowid
-        cursor.close()
+        self.connection.close()
         return last_id
 
     def get_cached_result(self, type, request_input):
@@ -27,14 +27,14 @@ class DatabaseWrapper:
         sql = f"""SELECT result FROM requests WHERE input = "{request_input}" and status = 1 and type = "{type}" """
         cursor.execute(sql)
         result = cursor.fetchone()
-        cursor.close()
+        self.connection.close()
         return result
 
     def post_result(self, request_id, result):
         cursor = self.connection.cursor(dictionary=True)
         sql = f"UPDATE requests SET result = {result}, status = 1, finish_timestamp = now() WHERE id = {request_id}"
         cursor.execute(sql)
-        cursor.close()
+        self.connection.close()
 
 
 class DatabaseProvider(DependencyProvider):
