@@ -18,7 +18,7 @@ class DatabaseWrapper:
         sql = f"""SELECT * FROM requests WHERE id = "{request_id}" """
         cursor.execute(sql)
         result = cursor.fetchone()
-        self.connection.close()
+        cursor.close()
         return result
 
 
