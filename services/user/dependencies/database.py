@@ -18,7 +18,7 @@ class DatabaseWrapper:
         sql = f"""SELECT * FROM users WHERE username = "{username}" """
         cursor.execute(sql)
         result = cursor.fetchone()
-        self.connection.close()
+        cursor.close()
         return result
 
     def register_user(self, username, password):
@@ -26,7 +26,7 @@ class DatabaseWrapper:
         sql = f"""INSERT INTO users (username, password) VALUES ("{username}", "{password}")"""
         cursor.execute(sql)
         self.connection.commit()
-        self.connection.close()
+        cursor.close()
 
 
 class DatabaseProvider(DependencyProvider):
